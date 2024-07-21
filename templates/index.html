@@ -1,0 +1,188 @@
+{% load static %} 
+{% include 'header.html' %}
+
+    
+      <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
+         
+      
+    
+    <br>
+        
+      <!-- <div class="d row mt-0">
+          <div class="col-md-6"></div>
+          
+          <div class="col-md-6 text-white mt-3 ps-3 text-center text-uppercase "><h1 class="h1 text-white " style="font-family: cursive;" ><br>Welcome !<br><b class="cc text-warning" style="font-family: cursive;  font-size:  60px; ">I'm Foodie</b> </h1>
+            <br>
+            <p class="t text-white">Order the food of your choice..</p>
+          </div>
+        
+    burger==https://cdn.pixabay.com/photo/2024/06/14/03/27/food-8828781_1280.png
+        
+      </div> -->
+      
+      <div id="carouselExampleSlidesOnly" class="carousel slide  " data-bs-ride="carousel">
+        <div class="carousel-inner" >
+        <div class="carousel-item active " style="height:650px;">
+            <img src="https://cdn.pixabay.com/photo/2024/07/12/15/32/ai-generated-8890640_960_720.jpg" class=" d-block w-100  " style="height:650px;"alt="...">
+            <div class="col-md-6 text-white mt-3 ps-3 text-center text-uppercase "><h1 class="h1 text-white " style="font-family: cursive;" ><br>Welcome !<br><b class="cc text-warning" style="font-family: cursive;  font-size:  60px; ">I'm Foodie</b> </h1>
+              <br>
+              <p class="t text-white">Order the food of your choice..</p>
+            </div>
+          </div>
+        <div class="carousel-item" style="height:650px;">
+            <img src="https://cdn.pixabay.com/photo/2022/06/07/20/52/curry-7249247_1280.jpg" class="d-block w-100 "style="height:650px;" alt="...">
+        </div>
+        <div class="carousel-item" style="height:650px;">
+            <img src="https://cdn.pixabay.com/photo/2022/04/26/11/33/dish-7158169_1280.jpg" class="d-block w-100"style="height:650px;" alt="...">
+        </div>
+        </div>
+     
+      <div class="row mt-3 p-5 ">
+            
+            <!-- <div class="col-md-3 p-3 text-dark "  >
+              <img src="{% static 'images/car.jpg' %}" class=" d-block w-100  " style="height:300px;"alt="...">
+            </div> -->
+            <div class="col-md-4  text-dark "  >
+              <img src="https://i.pinimg.com/736x/d6/d2/b4/d6d2b435f85df87946a7caf13b5b97bd.jpg" class=" d-block w-100  " style="height:300px;"alt="...">
+            </div>
+            <div class="col-md-4  text-dark "  >
+              <img src="{% static 'images/dd.jpg' %}" class=" d-block w-100  " style="height:300px;"alt="...">
+            </div>
+           
+                
+            
+            <div class="col-md-4 p-0 "  >
+              <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
+                  <div class="carousel-inner" >
+                    <div class="carousel-item active " style="height:300px;">
+                        <img src="{% static 'images/oo.jpeg' %}" class=" d-block w-100  " style="height:300px;"alt="...">
+                    </div>
+                    <div class="carousel-item" style="height:300px;">
+                        <img src="{% static 'images/po.jpg' %}"  class="d-block w-100 "style="height:300px;" alt="...">
+                    </div>
+                    <div class="carousel-item" style="height:300px;">
+                        <img src="{% static 'images/oo2.jpeg' %}" class="d-block w-100"style="height:300px;" alt="...">
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    <br>
+      
+    <div class="container">
+      
+     <div class="row shadow  p-3" style="display: flex; margin: 10px;">
+      <div style="width: 50%;"><button class="openbtn " height="100px" onclick="openNav()" style="width: 7%; ">☰ </button></div>
+      <div style="width: 50%;"><h3>OUR MENU</h3></div> 
+     </div>
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      
+       <!--filter start  --> 
+       <div class="col text-white p-3 bg-dark ">
+        <h5 class="text-warning">Filter by catagory</h5><hr>
+        <a href="/index"><h5>All</h5></a>
+        <a href="/catfilter/1"><h5>Pizza</h5>
+        <a href="/catfilter/2"><h5>Burger</h5></a>
+        <a href="/catfilter/3"><h5>Meal</h5></a>
+        <a href="/catfilter/4"><h5>Coldrinks</h5></a><br>
+
+        <h5 class="text-warning">Sort By Price</h5>
+        <a href="/sort/1"><h5>High To Low</h5></a> 
+        <a href="/sort/0"><h5>Low To High</h5></a><br> 
+
+        <h5 class="text-warning">Filter By Price</h5><hr>
+        <form action="/pricefilter" method="get">
+            <div class="mb-3">
+                <label for="Input1" class="form-label">Min</label>
+                <input type="number" class="form-control" id="Input1" name="min">
+            </div>
+            <div class="mb-3">
+                <label for="Input2" class="form-label">Max</label>
+                <input type="number" class="form-control" id="Input2" name="max" >
+            </div>
+            <div class="mb-3 mt-5 center text-dark shadow">
+                <input type="submit" value="Filter" class="btn btn-warning shadow center">
+
+            </div>
+        </form>
+      </div>
+       
+      </div>
+      <!-- Filter end  -->
+
+      <div class="row text-white ms-5 center">
+        <!-- <div class="section text-white mt-5">  -->
+          <div class="row">
+            {% if ermsg %}
+            <div class="alert alert-danger" role="alert">
+                {{ermsg}}
+            </div>
+            {% endif %}          
+            {% for i in data %}
+              <div class="col-md-3 mt-5 ">
+                  <div class="card text-white shadow bg-black" style="width: 18rem;  background-color:black;"  data-aos="flip-left" data-aos-delay="900">
+                      <img src="{{ i.pimage.url }}" class="card-img-top" alt="..." height="190px" >
+                      <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <p class="card-text"><strong>Price: </strong>Rs.{{i.price}}</p>
+                        <a href="/products/{{i.id}}" class="btn btn-dark">See Details</a>
+                      </div>
+                    </div>
+              </div>
+            {% endfor %}
+          </div>  
+        </div>
+      </div>
+      <!-- our team -->
+       <!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center  text-dark  mt-5" id="team">
+  <h2 class="team shadow b p-3 " data-aos="fade-right" data-aos-delay="400">Our Team</h2>
+
+  
+  <div class="w3-row"><br>
+  
+  <div class="w3-quarter">
+    <img src="{% static 'images/image/shef4.jpeg'%}" alt="Boss" style="width:65%" class="w3-circle w3-hover-opacity">
+    <h3>Johnny Walker</h3>
+    <p>Web Designer</p>
+  </div>
+  
+  <div class="w3-quarter">
+    <img src="{% static 'images/image/88.jpeg'%}" alt="Boss" style="width:60%" class="w3-circle w3-hover-opacity">
+    <h3>Rebecca Flex</h3>
+    <p>Support</p>
+  </div>
+  
+  <div class="w3-quarter">
+    <img src="{% static 'images/c2.jpeg'%}" alt="Boss" style="width:60%" class="w3-circle w3-hover-opacity">
+    <h3>Jan Ringo</h3>
+    <p>Boss man</p>
+  </div>
+  
+  <div class="w3-quarter">
+    <img src="{% static 'images/image/shef6.jpeg'%}" alt="Boss" style="width:60%" class="w3-circle w3-hover-opacity">
+    <h3>Kai Ringo</h3>
+    <p>Fixer</p>
+  </div>
+  
+  </div>
+  </div>
+    </div>
+
+ 
+
+
+</body>
+{% include 'footer.html' %}

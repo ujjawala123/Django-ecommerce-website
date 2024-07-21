@@ -1,0 +1,48 @@
+{% load static %} 
+{% include 'header.html' %}
+
+<!-- main -->
+<main class="section" style="background-color: #fff6f6"> 
+    
+    <div class="container p-5 bg-black" >
+        <div class="row">
+            <div class="col mx-auto ">
+                {% if ermsg %}
+                <div class="alert alert-danger" role="alert">
+                    {{ermsg}}
+                </div>
+                {% endif %}
+                <div class="row" data-aos="fade-up" data-aos-delay="400" >
+                    <div class="col-md-5 mx-auto shadow p-5 bg-black" style="border: 2px #0d2435; background-image:linear-gradient(rgb(255, 255, 255),rgba(255, 217, 92, 0.993));">
+                        
+                        <div class="imgcontainer " style="text-align: center;">
+                            <img src="/static/images/1.jpg" alt="Avatar" class="avatar">
+                        </div>
+                        <h5 class="text-center text-bold mt-5">Login</h5><br>
+                        <form  method="post">
+                            {% csrf_token %}
+                            <div class="mb-2">
+                                <label for="Input1" class="form-label">Username:</label>
+                                <input type="text" class="form-control" id="Input1" name="uname">
+                            </div>
+                           
+                            <div class="mb-2">
+                                <label for="Input3" class="form-label">Password:</label>
+                                <input type="password" class="form-control" id="Input3"name="upass">
+                            </div>
+                        
+                            <div class="mb-2 mt-5">
+                                <input type="submit" value="Login" class="btn btn-dark">
+                                &nbsp; New  Register ? &nbsp;&nbsp; <a href="/signup" >Register</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+{% include 'footer.html' %}

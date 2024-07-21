@@ -1,0 +1,204 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Project bootsrap</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .d{
+        background-image: url(/static/images/all.jpg);
+        background-repeat: no-repeat;  
+        background-size: 55% 100%;
+        background-color: #000000fd;
+        margin-top: 10%;
+        height: 300px;
+       
+
+      }
+  
+    
+    
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #0c0c0c;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #f7efef;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidebar a:hover {
+      color: #faf8f8;
+    }
+    
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+    
+    .openbtn:hover {
+      background-color: #444;
+    }
+    
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+    
+    @media screen and (max-height: 450px) {
+      .sidebar {padding-top: 15px;}
+      .sidebar a {font-size: 18px;}
+    }
+    </style>
+</head>
+ 
+<div class="row">
+  <nav class="navbar  navbar-expand-lg  p-2 "  style="background-color: #000000;">
+    <div class="container-fluid">
+     
+      <a
+        class="navbar-brand  text-warning" href="/menu"
+        style="font-family: cursive ,font-ans-serif; "
+        > <img src="{% static 'images/ll.png'%}" alt="" width="60" height="50"> <strong>I'<span>m</span> Foodie</strong></a
+      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item  ">
+            <a class="nav-link active text-warning" aria-current="page" href="/index">Home</a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link text-warning" href="/about">About</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link text-warning" href="/contact">Contact</a>
+          </li>
+          {% if user.is_authenticated %}
+                          <li class="nav-item">
+                            <a class="nav-link text-warning" href="/logout">Logout</a>
+                          </li>
+                          {% else %}
+                          <li class="nav-item">
+                            <a class="nav-link text-warning" href="/signup">Signup</a>
+                          </li>
+                          
+                          
+          <li class="nav-item ">
+            <a class="nav-link text-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" >Login</a>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                
+                      <div class="container  bg-black" >
+                          <div class="row" data-aos="fade-up" data-aos-delay="400" >
+                              <div class="col-md-12 mx-auto shadow p-5 bg-black" style="border: 2px #0d2435; background-image:linear-gradient(rgb(255, 255, 255),rgba(255, 217, 92, 0.993));">
+                                  <div class="imgcontainer " style="text-align: center;">
+                                      <img src="{% static 'images/1.jpg'%}" alt="Avatar" class="avatar">
+                                    </div>
+                                  <h5 class="text-center text-bold mt-5">Login</h5><br>
+                                  <form action="index.html" method="post">
+                                      <div class="mb-2 ">
+                                          <label for="Input1" class="form-label">Username:</label>
+                                          <input type="text" class="form-control" id="Input1">
+                                      </div>
+                                      
+                                      <div class="mb-2">
+                                          <label for="Input3" class="form-label">Password:</label>
+                                          <input type="password" class="form-control" id="Input3">
+                                      </div>
+                                     
+                                      <div class="mb-2">
+                                          <input type="submit" value="Login" class="btn btn-dark">
+                                          &nbsp; New  Register ? &nbsp;&nbsp; <a href="/Signup" >Register</a>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  
+
+              </div>
+            </div>
+          </li>
+          {% endif %}
+          <!-- <li class="nav-item ">
+            <a class="nav-link text-warning" href="/signup">Signup</a>
+          </li> -->
+          <li class="nav-item dropdown  ">
+            <a class="nav-link dropdown-toggle text-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu text-warning">
+              <li>
+                <a class="dropdown-item text-warning" href="/products">Products</a>
+              </li>
+              <li>
+                <a class="dropdown-item text-warning" href="/place_order"
+                  >Place Order</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item text-warning" href="/cart">Add Cart</a>
+              </li>
+              
+            </ul>
+          </li>
+
+        </ul>
+        <video autoplay muted loop id="myVideo pe-2" height="60px" width="200px">
+         
+          <source src="{% static 'images/v.mov'%}" type="video/mp4" width="100%" >
+        </video>
+        <form class="d-flex" role="search" action="/search"> 
+          <input class="form-control me-2  bg-dark text-warning btn-outline-warning" type="search" placeholder="Search " name="search" aria-label="Search">
+          <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form>
+        <div class="btn ">
+          <a href="/cart"> <i class="bi bi-cart3 text-warning text-bold"></i></a>
+        </div>
+        
+        
+      </div>
+    </div>
+  </nav>

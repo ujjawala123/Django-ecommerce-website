@@ -1,0 +1,66 @@
+{% load static %} 
+{% include 'header.html' %}
+
+<!-- main -->
+<main style="background-color: #ffffff; background-image: url(/static/images/bb.jpg); background-repeat: no-repeat; background-size:cover;">
+        
+    <div class="container  p-5">
+        <div class="row mb-5 ">
+                <div class="col-md-10 mx-auto ">
+                    {% if ermsg %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        {{ermsg}}
+                    </div>
+                    {% endif %}
+                    {% if success %}
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>   
+                        {{success}}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="row shadow p-5" data-aos="fade-up" data-aos-delay="400" width="100%" height="200px">
+                        <div class="col-md-6  "  >
+                            <img src="/static/images/cabage.jpg" alt="Avatar" class="avatar"style="height: 600px; " width="100%">
+                                <!-- <img src="https://i.pinimg.com/564x/96/ca/dc/96cadc48238f303c6e8f7e08cdb73f3f.jpg" alt="image" class="avatar"style="height: 600px; width=100;" > -->
+                        
+                        </div>
+                        <div class="col-md-6   p-5" style="border: 4px #070707; background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.856) 0%, rgba(245, 198, 69, 0.781) 100%);">
+                            <div class="imgcontainer " style="text-align: center;">
+                                <img src="/static/images/1.jpg" alt="Avatar" class="avatar">
+                            </div>
+                            <h5 class="text-center mt-3">Registeration</h5><br>
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="mb-2">
+                                    <label for="Input1" class="form-label">Username:</label>
+                                    <input type="text" class="form-control" id="Input1" name="uname" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="Input2" class="form-label">Email:</label>
+                                    <input type="email" class="form-control" id="Input2" name="email" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="Input3" class="form-label">Password:</label>
+                                    <input type="password" class="form-control" id="Input3" name="upass" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="Input4" class="form-label">Confirm Password:</label>
+                                    <input type="password" class="form-control" id="Input4" name="ucpass" required>
+                                </div>
+                                <div class="mb-2 center mt-5">
+                                    <input type="submit" value="Register" class="btn btn-dark" >
+                                    &nbsp; Already User? &nbsp;&nbsp; <a href="/login" >Login</a>
+                                </div>
+                            </form>
+                        </div>
+                        
+                            
+                    
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</main>
+{% include 'footer.html' %}

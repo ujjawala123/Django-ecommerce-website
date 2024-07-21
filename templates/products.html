@@ -1,0 +1,64 @@
+{% load static %} 
+{% include 'header.html' %}
+ <!-- product -->
+      <!-- body section -->
+       
+      <div class="row mt-5 p-2 mb-5">
+         
+        <div class="col-md-9  p-3 mx-auto ">
+            <div class="row shadow"  data-aos="fade-up" data-aos-delay="1000">
+              {% if ermsg %}
+          <div class="alert alert-danger" role="alert">
+              {{ermsg}}
+          </div>
+              {% endif %}
+              {% if success %}
+                <div class="alert alert-success" role="alert">
+                    {{success}}
+                </div>
+              {% endif %}
+        <!-- <div class="row shadow"> -->
+          {% for i in data %}
+              <div class="col-md-6 p-5">
+                  <img src="{{ i.pimage.url }}" class="card-img-top" alt="..." height="350px"data-aos="zoom-in" data-aos-delay="1300">
+
+              </div><!--image-->
+              <div class="col-md-6 p-5" >
+                <h3 class="t text-warning" data-aos="fade-up" data-aos-delay="1500"><strong>{{i.name}}</strong></h3><br>
+                <p data-aos="fade-up" data-aos-delay="1500"><strong>Product Name: </strong>{{i.name}}</p>
+                {% if i.cat == 1 %}
+                <p data-aos="fade-up" data-aos-delay="1600"><strong>Category: </strong>Pizza</p>
+                {% elif i.cat == 2 %}
+                <p data-aos="fade-up" data-aos-delay="1700"><strong>Category: </strong>Burger</p>
+                {% elif i.cat == 3 %}
+                <p data-aos="fade-up" data-aos-delay="1800"><strong>Category: </strong>Meal</p>
+                {% else  %}
+                <p data-aos="fade-up" data-aos-delay="1900"><strong>Category: </strong>Colddrinks</p>
+                {% endif %}
+                <p data-aos="fade-up" data-aos-delay="2000"><strong>Product Detail: </strong>{{i.pdetail}}</p>
+                <p class="t text-danger" data-aos="fade-up" data-aos-delay="2100"><strong>Delivery Time: </strong>Within Next 45 Min only/-</p>
+                <h5 class="t text-success mb-3" data-aos="fade-up" data-aos-delay="2200"><strong >Price: </strong>{{i.price}} Rs.</h5>
+                
+
+
+              <p class="button p-2 ">
+                  <a href="/addtocart/{{i.id}}"><button class="btn btn-danger me-2 shadow" data-aos="fade-up" data-aos-delay="2400">Add to Cart</button></a>
+                  <a href="/cart"><button class="btn btn-warning me-2 shadow" data-aos="fade-up" data-aos-delay="2600">View Cart</button></a>
+                  <a href="/index"><button class="btn btn-success me-2 shadow" data-aos="fade-up" data-aos-delay="2800">Shop More</button></a>
+              </p>     
+
+              
+
+
+              </div><!--detail-->
+              {% endfor %}
+          </div>
+        </div>
+        
+       
+
+
+      </div>
+      <!-- 2nd row - end body  -->
+    <!-- product list -->
+{% include 'footer.html' %}

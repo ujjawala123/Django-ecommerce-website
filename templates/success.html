@@ -1,0 +1,19 @@
+{% load static %}  
+{% include 'header.html' %}
+
+<div class="row mt-5 mb-12">
+    <div class="col-md-6 mx-auto  p-5  " data-aos="zoom-in" data-aos-delay="2000">
+        <div class="col-md-6 mx-auto " >
+            <img src="{% static 'images/w.png'%}" class="card-img-top ms-3" data-aos="zoom-in" data-aos-delay="2300"alt="..." style="height: 260px; width: 300px;" >
+    
+        </div><!--image-->
+        
+        <center><h3 class="text text-success p-3 center"data-aos="fade-up" data-aos-delay="2500"><b>Payment Successful..!!</b></h3></center>
+        <center><h5 class="text text-warning center"data-aos="fade-up" data-aos-delay="2600">Thanks for Shopping</h5></center>
+        <center><h5 class="text text-primary center mb-5"data-aos="fade-up" data-aos-delay="2700">Visit Again</h5></center>
+        <center><a href="/index"><button class="btn btn-success text-light rounded p-3 "data-aos="fade-up" data-aos-delay="3000">Shop More</button></a></center>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,73 @@
+{% load static %} 
+{% include 'header.html' %}
+<!-- body section -->
+<div class="row mt-0 m-3 p-3  "  data-aos="fade-up" data-aos-delay="1000">
+ 
+         
+    <div class="col-md-9  p-3 mx-auto "><!--Product and customer detail-->
+        
+        {% for i in data %}
+          {% if forloop.counter == 1 %}
+              <div class="row shadow p-5 mt-2">
+                <h4 class="text-warning "><strong>Customer Details</strong></h4><hr>
+                <p><strong>Customer Name: </strong>{{i.uid.username}}</p>
+                <p><strong>Customer Email: </strong>{{i.uid.email}}</p>
+              </div><!--customer details-->
+          {% endif %}
+        {% endfor %}
+
+        {% for i in data %}
+        
+        <div class="row shadow p-3">
+            <div class="col-md-5 p-5">
+                <img src="{{ i.pid.pimage}}" class="card-img-top" alt="..." height="300px">
+
+            </div><!--image-->
+            <div class="col-md-7 p-5">
+                <p data-aos="fade-up" data-aos-delay="1500"><strong>Product Name: </strong>{{i.pid.name}}</p>
+                {% if i.pid.cat == 1 %}
+                <p data-aos="fade-up" data-aos-delay="1600"><strong>Category: </strong>Pizza</p>
+                {% elif i.pid.cat == 2 %}
+                <p data-aos="fade-up" data-aos-delay="1700"><strong>Category: </strong>Burger</p>
+                {% elif i.pid.cat == 3 %}
+                <p data-aos="fade-up" data-aos-delay="1800"><strong>Category: </strong>Meal</p>
+                {% else  %}
+                <p data-aos="fade-up" data-aos-delay="1900"><strong>Category: </strong>Colddrinks</p>
+                {% endif %}
+                <p data-aos="fade-up" data-aos-delay="2000"><strong>Product Detail: </strong>{{i.pid.pdetail}}</p>
+                <p class="t text-danger" data-aos="fade-up" data-aos-delay="2100"><strong>Delivery Time: </strong>Within Next 45 Min only/-</p>
+                <h5 class="t text-success mb-3" data-aos="fade-up" data-aos-delay="2200"><strong >Price: </strong>{{i.pid.price}} Rs.</h5>
+
+
+                <p class="b p-2">
+                    <a href="/updateqty/0/{{i.id}}"><button class="btn btn-dark"><b>-</b></button></a>
+                    <input type="text" value={{i.qty}}>
+                    <a href="/updateqty/1/{{i.id}}"><button class="btn btn-dark"><b>+</b></button></a>
+                    
+                </p>
+                <p><a href="/remove/{{i.id}}"><button class="btn btn-danger">Remove </button></a></p>
+
+            
+
+
+            </div><!--detail-->
+        </div><!--product details-->
+        {% endfor %}
+    </div>
+
+    <div class="col-md-3 shadow p-5">
+      <h4 class="text-warning"></strong>Price Details</strong></h4><hr>
+      <p><strong>Price ({{n}} item):</strong>Rs.{{total}}/-</p>
+      <p><strong>Total Amount:</strong>Rs.{{total}}/-</p>
+      <p><a href="/place_order"><button class="btn btn-success">Place Order </button></a></p>
+
+
+
+    </div><!--price details-->
+    
+
+
+
+</div>
+<!-- 2nd row - end body  -->
+{% include 'footer.html' %}
